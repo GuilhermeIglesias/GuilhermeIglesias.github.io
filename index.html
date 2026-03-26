@@ -33,13 +33,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-ghost{background:transparent;color:var(--ink-mid);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
 
-/* HERO PHOTO — fixed: photo and frame share same top-left anchor */
+/* HERO PHOTO */
 .hero-img-wrap{
   position:relative;
   display:flex;
   justify-content:center;
   align-items:center;
-  /* give enough room for the offset frame */
   padding:20px 20px 40px 20px;
 }
 .hero-photo-container{
@@ -184,22 +183,6 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
   .nav-links{gap:1rem}
   .cv-btns{flex-direction:column}
 }
-  .hero-photo-container.clean{
-  position:relative;
-  width:280px;
-  height:340px;
-  flex-shrink:0;
-}
-
-.hero-photo{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:8px; /* mantém estilo original */
-}
 </style>
 </head>
 <body>
@@ -226,7 +209,6 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
       <span class="chip">Unity 3D</span><span class="chip">Arduino</span>
     </div>
     <div class="hero-actions">
-      <!-- CV download group -->
       <div class="cv-group">
         <div class="cv-btns">
           <a class="btn btn-primary" href="CV_Guilherme.pdf" download>
@@ -245,12 +227,14 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
     </div>
   </div>
 
-  <!-- PHOTO — fixed layout -->
- <div class="hero-img-wrap" style="animation:fadeUp .7s .15s ease both">
-  <div class="hero-photo-container clean">
-    <img class="hero-photo" src="https://avatars.githubusercontent.com/u/112135214?v=4" alt="Guilherme Iglesias">
+  <!-- PHOTO -->
+  <div class="hero-img-wrap" style="animation:fadeUp .7s .15s ease both">
+    <div class="hero-photo-container">
+      <img class="hero-photo" src="https://avatars.githubusercontent.com/u/112135214?v=4" alt="Guilherme Iglesias">
+    </div>
   </div>
-</div>
+</section>
+<!-- FIM DA HERO — secções seguintes começam aqui fora do grid -->
 
 <!-- SKILLS -->
 <section id="skills" class="sec-bg">
@@ -457,6 +441,7 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
         <a class="contact-item" href="mailto:a57649@alunos.ipb.pt">
           <svg class="ci-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           a57649@alunos.ipb.pt
+        </a>
         <a class="contact-item" href="https://www.linkedin.com/in/guilherme-iglesias-rocha-gomes-0b670021a/" target="_blank">
           <svg class="ci-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
@@ -472,25 +457,20 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
       </div>
     </div>
     <form class="contact-form" action="https://formspree.io/f/mojpqlqb" method="POST">
-
       <input type="hidden" name="_subject" value="Novo contacto do site!">
-
-        <div>
-          <label class="form-label">Nome</label>
-          <input class="form-input" type="text" name="name" required>
-        </div>
-
-        <div>
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" name="email" required>
-        </div>
-
-        <div>
-          <label class="form-label">Mensagem</label>
-          <textarea class="form-textarea" name="message" required></textarea>
-        </div>
-
-          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+      <div>
+        <label class="form-label">Nome</label>
+        <input class="form-input" type="text" name="name" required>
+      </div>
+      <div>
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" name="email" required>
+      </div>
+      <div>
+        <label class="form-label">Mensagem</label>
+        <textarea class="form-textarea" name="message" required></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Enviar mensagem</button>
     </form>
   </div>
 </section>
