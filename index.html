@@ -184,6 +184,22 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
   .nav-links{gap:1rem}
   .cv-btns{flex-direction:column}
 }
+  .hero-photo-container.clean{
+  position:relative;
+  width:280px;
+  height:280px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  position:static;
+}
 </style>
 </head>
 <body>
@@ -230,17 +246,11 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
   </div>
 
   <!-- PHOTO — fixed layout -->
-  <div class="hero-img-wrap" style="animation:fadeUp .7s .15s ease both">
-    <div class="hero-photo-container">
-      <img class="hero-photo" src="https://avatars.githubusercontent.com/u/112135214?v=4" alt="Guilherme Iglesias">
-      <div class="hero-frame"></div>
-      <div class="hero-stat">
-        <div class="stat-label">Baseado em</div>
-        <div class="stat-val">Bragan&ccedil;a, PT</div>
-      </div>
-    </div>
+ <div class="hero-img-wrap" style="animation:fadeUp .7s .15s ease both">
+  <div class="hero-photo-container clean">
+    <img class="hero-photo" src="https://avatars.githubusercontent.com/u/112135214?v=4" alt="Guilherme Iglesias">
   </div>
-</section>
+</div>
 
 <!-- SKILLS -->
 <section id="skills" class="sec-bg">
@@ -461,20 +471,26 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
         </a>
       </div>
     </div>
-    <form class="contact-form" action="https://formspree.io/f/SUBSTITUIR_ID" method="POST">
-      <div>
-        <label class="form-label" for="nome">Nome</label>
-        <input class="form-input" type="text" id="nome" name="nome" placeholder="O teu nome" required>
-      </div>
-      <div>
-        <label class="form-label" for="email">Email</label>
-        <input class="form-input" type="email" id="email" name="email" placeholder="o.teu@email.com" required>
-      </div>
-      <div>
-        <label class="form-label" for="msg">Mensagem</label>
-        <textarea class="form-textarea" id="msg" name="mensagem" placeholder="Ol&aacute; Guilherme, gostava de falar sobre..." required></textarea>
-      </div>
-      <button class="btn btn-primary" type="submit" style="align-self:flex-start">Enviar mensagem</button>
+    <form class="contact-form" action="https://formspree.io/f/mojpqlqb" method="POST">
+
+      <input type="hidden" name="_subject" value="Novo contacto do site!">
+
+        <div>
+          <label class="form-label">Nome</label>
+          <input class="form-input" type="text" name="name" required>
+        </div>
+
+        <div>
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" name="email" required>
+        </div>
+
+        <div>
+          <label class="form-label">Mensagem</label>
+          <textarea class="form-textarea" name="message" required></textarea>
+        </div>
+
+          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
     </form>
   </div>
 </section>
