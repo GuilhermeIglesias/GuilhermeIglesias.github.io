@@ -168,6 +168,7 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:none}
+.reveal-fallback{opacity:1;transform:none}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -371,9 +372,6 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
       </div>
     </div>
   </div>
-  <div class="note">
-    <strong>Como adicionar as tuas fotos:</strong> Substitui cada <code>travel-img-ph</code> por <code>&lt;img style="width:100%;height:170px;object-fit:cover" src="foto.jpg"&gt;</code> e coloca os ficheiros na mesma pasta do <code>index.html</code>.
-  </div>
 </section>
 
 <!-- TIMELINE -->
@@ -472,5 +470,17 @@ footer{padding:1.8rem 6vw;border-top:1px solid var(--line);display:flex;justify-
     <a class="footer-link" href="https://www.linkedin.com/in/guilherme-iglesias-rocha-gomes-0b670021a/" target="_blank">LinkedIn</a>
   </div>
 </footer>
+<script>
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>{obs.observe(el)});
+// Fallback: if page already scrolled, show everything
+window.addEventListener('load', function(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight) el.classList.add('in');
+  });
+});
+</script>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-dec
+</body>
+</html>
